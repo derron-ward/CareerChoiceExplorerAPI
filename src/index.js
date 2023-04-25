@@ -1,9 +1,18 @@
 const express = require('express')
+const cors = require('cors')
 const { MongoClient } = require('mongodb')
 const fs = require('fs')
 const path = require('path')
 
 const app = express()
+app.options("*", cors({
+    origin: "*",
+    optionsSuccessStatus: 200
+}))
+app.use(cors({
+    origin: "*",
+    optionsSuccessStatus: 200
+}))
 app.use(express.json())
 
 // Import and set routes located in src/routes
