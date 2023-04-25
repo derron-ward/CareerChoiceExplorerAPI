@@ -7,12 +7,12 @@ const router = express.Router()
 router.get('/', async (req, res) => {
     const client = new MongoClient(mongoURI)
 
-    const data = await client.db('cce').collection('careers').find({}).toArray()
+    const data = await client.db('cce').collection('events').find({}).toArray()
     
     res.send(data)
 })
 
 module.exports = {
     router: router,
-    route: '/careers'
+    route: '/events'
 }
